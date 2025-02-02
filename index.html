@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Daily Journal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .entry-form, .entries {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        textarea { 
+                
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .entry {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .entry:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Daily Journal</h1>
+    </header>
+
+    <div class="entry-form">
+        <h2>Add a New Entry</h2>
+        <textarea id="entryText" placeholder="What did you do today?"></textarea><br>
+        <button onclick="addEntry()">Add Entry</button>
+    </div>
+
+    <div class="entries" id="entries">
+        <h2>Daily Entries</h2>
+    </div>
+
+    <script>
+        function addEntry() {
+            const entryText =
+            document.getElementById('entryText').value;
+            if (entryText.trim() !== '') {
+                const entriesDiv = document.getElementById('entries');
+                const newEntry = document.createElement('div');
+                newEntry.className = 'entry';
+                newEntry.textContent = entryText;
+                entriesDiv.appendChild(newEntry);
+
+                document.getElementById('entryText').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
